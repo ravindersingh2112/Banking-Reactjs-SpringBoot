@@ -30,7 +30,7 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    protected void configure(HttpSecurity http)throws  Exception{
+    protected void configure(HttpSecurity http) throws  Exception{
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth->auth
                 .requestMatchers("/auth/**").permitAll()

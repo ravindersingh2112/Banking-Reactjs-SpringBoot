@@ -13,11 +13,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
+@Table(name = "registeredusers")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String username;
     private String password;
