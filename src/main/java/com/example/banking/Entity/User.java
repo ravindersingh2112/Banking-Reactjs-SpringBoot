@@ -11,8 +11,8 @@ import lombok.Setter;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Setter
 @Getter
+@Setter
 @Table(name = "registeredusers")
 public class User {
 
@@ -25,5 +25,6 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
 
 }
