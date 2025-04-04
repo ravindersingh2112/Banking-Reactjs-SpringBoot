@@ -27,10 +27,11 @@ public class JwtUtil {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
     }
+
 
     public boolean validateToken(String token,String username){
         return (extractUsername(token).equals(username) && !isTokenExpired(token));
@@ -41,11 +42,10 @@ public class JwtUtil {
         return Jwts.parserBuilder()
                 .setSigningKey(key)
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody()
                 .getExpiration()
                 .before(new Date());
-
     }
 
 }
