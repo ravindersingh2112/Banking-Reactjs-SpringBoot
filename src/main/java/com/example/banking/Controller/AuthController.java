@@ -1,6 +1,7 @@
 package com.example.banking.Controller;
 
 import com.example.banking.Entity.User;
+import com.example.banking.ExceptionHandler.UserException;
 import com.example.banking.Repository.UserRepository;
 import com.example.banking.model.Role;
 import com.example.banking.security.JwtUtil;
@@ -47,7 +48,8 @@ public class AuthController {
             return jwtUtil.generateToken(userDetails.getUsername());
 
         } catch (BadCredentialsException e) {
-            return "Invalid username or password.";
+            throw new UserException("User not found");
+            
         }
     }
 
